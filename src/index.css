@@ -1,0 +1,853 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 60 56% 91%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 60 56% 91%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    /* Typography Scale - Custom Properties */
+    --text-xs: 0.75rem;      /* 12px */
+    --text-sm: 0.875rem;     /* 14px */
+    --text-base: 1rem;       /* 16px */
+    --text-lg: 1.125rem;     /* 18px */
+    --text-xl: 1.25rem;      /* 20px */
+    --text-2xl: 1.5rem;      /* 24px */
+    --text-3xl: 1.875rem;    /* 30px */
+    --text-4xl: 2.25rem;     /* 36px */
+    --text-5xl: 3rem;        /* 48px */
+    --text-6xl: 3.75rem;     /* 60px */
+    --text-7xl: 4.5rem;      /* 72px */
+    --text-8xl: 6rem;        /* 96px */
+
+    /* Custom semantic sizes */
+    --text-hero-mobile: 2.5rem;     /* 40px */
+    --text-hero-tablet: 3.125rem;   /* 50px */
+    --text-hero-desktop: 3.75rem;   /* 60px */
+    --text-hero-large: 4.375rem;    /* 70px */
+    --text-hero-xl: 5rem;           /* 80px */
+    
+    --text-display-sm: 1.875rem;    /* 30px */
+    --text-display-md: 2.25rem;     /* 36px */
+    --text-display-lg: 3rem;        /* 48px */
+    
+    --text-body-sm: 0.875rem;       /* 14px */
+    --text-body: 1rem;              /* 16px */
+    --text-body-lg: 1.125rem;       /* 18px */
+    --text-body-xl: 1.25rem;        /* 20px */
+    
+    --text-caption: 0.75rem;        /* 12px */
+    --text-overline: 0.75rem;       /* 12px */
+  }
+
+  @layer utilities {
+    /* Or just add it directly without @layer if you prefer */
+    .mirrored-video {
+      transform: scaleX(-1);
+    }
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Playfair Display", serif;
+  }
+}
+
+@layer components {
+  .container-section {
+    @apply container mx-auto px-6 md:px-8;
+  }
+
+  .heading-primary {
+    @apply text-4xl md:text-5xl xl:text-6xl font-bold text-pollen-primary font-playfair;
+  }
+
+  .heading-secondary {
+    @apply text-3xl md:text-4xl xl:text-5xl font-bold text-pollen-primary font-playfair;
+  }
+
+  .heading-tertiary {
+    @apply text-xl md:text-2xl font-semibold text-pollen-secondary font-playfair;
+  }
+
+  .subtext {
+    @apply text-lg text-pollen-grey;
+  }
+
+  /* Standardized Text Classes using CSS Custom Properties */
+  .text-hero {
+    font-size: var(--text-hero-mobile);
+  }
+  @media (min-width: 640px) {
+    .text-hero { font-size: var(--text-hero-tablet); }
+  }
+  @media (min-width: 768px) {
+    .text-hero { font-size: var(--text-hero-desktop); }
+  }
+  @media (min-width: 1024px) {
+    .text-hero { font-size: var(--text-hero-large); }
+  }
+  @media (min-width: 1280px) {
+    .text-hero { font-size: var(--text-hero-xl); }
+  }
+
+  .text-display-large {
+    font-size: var(--text-display-lg);
+  }
+  @media (min-width: 768px) {
+    .text-display-large { font-size: var(--text-5xl); }
+  }
+  @media (min-width: 1024px) {
+    .text-display-large { font-size: var(--text-6xl); }
+  }
+
+  .text-display-medium {
+    font-size: var(--text-display-md);
+  }
+  @media (min-width: 768px) {
+    .text-display-medium { font-size: var(--text-4xl); }
+  }
+  @media (min-width: 1024px) {
+    .text-display-medium { font-size: var(--text-5xl); }
+  }
+
+  .text-display-small {
+    font-size: var(--text-display-sm);
+  }
+  @media (min-width: 768px) {
+    .text-display-small { font-size: var(--text-3xl); }
+  }
+  @media (min-width: 1024px) {
+    .text-display-small { font-size: var(--text-4xl); }
+  }
+
+  .text-body-large {
+    font-size: var(--text-body-xl);
+  }
+  @media (min-width: 768px) {
+    .text-body-large { font-size: var(--text-2xl); }
+  }
+
+  .text-body-medium {
+    font-size: var(--text-body-lg);
+  }
+  @media (min-width: 768px) {
+    .text-body-medium { font-size: var(--text-xl); }
+  }
+
+  .text-body-standard {
+    font-size: var(--text-body);
+  }
+  @media (min-width: 768px) {
+    .text-body-standard { font-size: var(--text-lg); }
+  }
+
+  .text-body-small {
+    font-size: var(--text-body-sm);
+  }
+  @media (min-width: 768px) {
+    .text-body-small { font-size: var(--text-body); }
+  }
+
+  .text-caption {
+    font-size: var(--text-caption);
+  }
+  @media (min-width: 768px) {
+    .text-caption { font-size: var(--text-sm); }
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 rounded-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .btn-orange {
+    @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 rounded-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .btn-primary-orange {
+    @apply bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 rounded-lg transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 hover:scale-105;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .decorative-dot {
+    @apply block absolute rounded-full bg-pollen-accent/20;
+  }
+
+  .feature-card {
+    @apply relative bg-background p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300;
+  }
+
+  /* Enhanced Card Styling */
+  .card-enhanced {
+    @apply relative bg-background p-6 md:p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300;
+  }
+}
+
+/* Animation and Section Visibility */
+section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+section.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+}
+
+.section-fade-in.animate-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Enhanced animations */
+.staggered-fade-in {
+  opacity: 0;
+  transform: translateY(15px);
+  transition:
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+}
+
+.staggered-fade-in.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse animation */
+@keyframes pulse-light {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+.animate-pulse-light {
+  animation: pulse-light 4s ease-in-out infinite;
+}
+
+/* Custom colors */
+:root {
+  --color-pollen-primary: #1a1f2c;
+  --color-pollen-secondary: #403e43;
+  --color-pollen-grey: #8e9196;
+  --color-pollen-accent: #ff6600;
+  --color-pollen-light: #ffebe0;
+}
+
+.text-pollen-primary {
+  color: var(--color-pollen-primary);
+}
+
+.text-pollen-secondary {
+  color: var(--color-pollen-secondary);
+}
+
+.text-pollen-grey {
+  color: var(--color-pollen-grey);
+}
+
+.text-pollen-accent {
+  color: var(--color-pollen-accent);
+}
+
+.bg-pollen-primary {
+  background-color: var(--color-pollen-primary);
+}
+
+.bg-pollen-secondary {
+  background-color: var(--color-pollen-secondary);
+}
+
+.bg-pollen-grey {
+  background-color: var(--color-pollen-grey);
+}
+
+.bg-pollen-accent {
+  background-color: var(--color-pollen-accent);
+}
+
+.bg-pollen-light {
+  background-color: var(--color-pollen-light);
+}
+
+.border-pollen-accent {
+  border-color: var(--color-pollen-accent);
+}
+
+/* Custom shape decorations */
+.shape-dots {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  opacity: 0.15;
+}
+
+.shape-dots::before,
+.shape-dots::after {
+  content: "";
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--color-pollen-accent);
+}
+
+.shape-dots::before {
+  top: 0;
+  left: 0;
+  box-shadow:
+    20px 0 0 var(--color-pollen-accent),
+    40px 0 0 var(--color-pollen-accent),
+    0 20px 0 var(--color-pollen-accent),
+    20px 20px 0 var(--color-pollen-accent),
+    40px 20px 0 var(--color-pollen-accent),
+    0 40px 0 var(--color-pollen-accent),
+    20px 40px 0 var(--color-pollen-accent),
+    40px 40px 0 var(--color-pollen-accent);
+}
+
+/* Quote styles */
+.fancy-quote {
+  position: relative;
+}
+
+.fancy-quote::before {
+  content: '"';
+  font-family: "Playfair Display", serif;
+  font-size: 5rem;
+  line-height: 0;
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  color: var(--color-pollen-accent);
+  opacity: 0.2;
+}
+
+/* Pattern background */
+.bg-pattern {
+  background-color: #f9f9f9;
+  background-image: radial-gradient(
+    var(--color-pollen-accent) 1px,
+    transparent 1px
+  );
+  background-size: 20px 20px;
+  background-position:
+    0 0,
+    10px 10px;
+  opacity: 0.05;
+}
+
+section.section-fade-in {
+  /* Target sections using the hook specifically */
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
+
+/* Visible state for the SECTION element */
+section.section-fade-in.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Initial state for STAGGERED child elements INSIDE a section */
+.staggered-fade-in {
+  opacity: 0;
+  transform: translateY(15px);
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+  /* transition-delay will be set inline via style prop in React */
+}
+
+/* Visible state for STAGGERED child elements WHEN parent section is visible */
+.section-visible .staggered-fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-animate-in {
+  opacity: 0;
+  /* Start slightly lower AND smaller for a subtle pop */
+  transform: translateY(30px) scale(0.98);
+  transition:
+    opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    /* Smoother ease */ transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* State when the section becomes visible via the hook */
+.section-visible.section-animate-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Base class for staggered children */
+.stagger-child {
+  opacity: 0;
+  transform: translateY(20px); /* Start lower */
+  transition:
+    opacity 0.5s ease-out,
+    transform 0.5s ease-out;
+  /* transition-delay is set inline */
+}
+
+/* State for staggered children when parent is visible */
+.section-visible .stagger-child {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animated-bar-inner {
+  transition: width 1s 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Apply ease and delay */
+}
+.section-visible .animated-bar-inner {
+  /* Width is set by inline style */
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.1;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+.animate-pulse-ring {
+  /* Apply this class to elements making the ring */
+  /* Animation applied when parent is visible */
+}
+.section-visible .animate-pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  animation-delay: var(--pulse-delay, 0s); /* Allow inline delay */
+}
+
+.viz-funnel-bar {
+  @apply w-full h-1 bg-gray-200 rounded-full overflow-hidden;
+}
+.viz-funnel-bar-inner {
+  @apply h-full rounded-full block;
+  width: 0%; /* Initial state */
+  transition: width 0.6s ease-out; /* Transition for width */
+}
+.section-visible .viz-funnel-bar-inner {
+  width: 100%; /* Final state */
+}
+/* Apply specific delays inline or via dedicated classes if needed */
+
+/* Network Node Animation */
+.viz-network-node {
+  @apply rounded-full;
+  transform: scale(0); /* Initial state */
+  opacity: 0;
+  transition:
+    transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    opacity 0.3s ease-out; /* Pop effect + fade */
+}
+.section-visible .viz-network-node {
+  transform: scale(1); /* Final state */
+  opacity: 1;
+}
+
+/* Pulse Animation (SVG path animation) */
+.viz-pulse-path {
+  stroke-dasharray: 1000; /* Needs to be longer than the path length */
+  stroke-dashoffset: 1000; /* Start fully hidden */
+  transition: stroke-dashoffset 1.2s ease-in-out;
+}
+.section-visible .viz-pulse-path {
+  stroke-dashoffset: 0; /* Draw the path */
+}
+
+.viz-pulse-dot {
+  @apply rounded-full;
+  offset-path: path(
+    "M0,15 Q15,15 20,25 T30,15 Q45,15 50,5 T60,15 Q75,15 80,25 T90,15"
+  ); /* Match the SVG path d attribute */
+  offset-distance: 0%; /* Start position */
+  motion-path: path(
+    "M0,15 Q15,15 20,25 T30,15 Q45,15 50,5 T60,15 Q75,15 80,25 T90,15"
+  ); /* Ensure compatibility */
+  animation: movePulseDot 1.5s ease-in-out 0.5s 1 forwards; /* Name, duration, timing, delay, iterations, fill-mode */
+  opacity: 0; /* Start hidden */
+}
+@keyframes movePulseDot {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  } /* Fade in quickly */
+  100% {
+    offset-distance: 100%;
+    opacity: 1;
+  }
+}
+/* We only run the animation once when it becomes visible */
+.section-visible .viz-pulse-dot {
+  /* Animation applied via keyframes */
+  opacity: 1; /* Ensure visible during animation */
+}
+
+/* Race Bar Animation */
+.viz-race-bar {
+  @apply h-2 rounded-full;
+  width: 0%; /* Initial state */
+  transition: width 0.7s ease-out; /* Transition for width */
+}
+.section-visible .viz-race-bar-1 {
+  width: 65%;
+} /* Example final widths */
+.section-visible .viz-race-bar-2 {
+  width: 85%;
+}
+.section-visible .viz-race-bar-3 {
+  width: 50%;
+}
+
+.gradient-underline {
+  display: inline-block;
+  position: relative;
+}
+
+.gradient-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  border-radius: 2px;
+}
+
+.gradient-text:hover {
+  text-shadow: 0 0 10px rgba(79, 172, 254, 0.3);
+}
+
+/* Infinite Marquee Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* =============================================================================
+   POLLEN.TECH DASHBOARD STYLES
+   Inventory Liquidation Design System - Surgical precision and sophistication
+   ============================================================================= */
+
+@layer base {
+  :root {
+    /* Dashboard-specific colors */
+    --surface-muted: 210 20% 98%;
+    --surface-elevated: 0 0% 100%;
+    
+    /* Accent - Electric blue technology */
+    --accent-blue: 217 91% 60%;
+    --accent-blue-foreground: 0 0% 98%;
+    
+    /* Status colors */
+    --success: 152 69% 19%;
+    --success-foreground: 0 0% 98%;
+    --warning: 25 95% 53%;
+    --warning-foreground: 0 0% 98%;
+    
+    /* Border variations */
+    --border-muted: 220 13% 91%;
+    
+    /* Sidebar variables for dashboard */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode for dashboard */
+    --surface-muted: 0 0% 12%;
+    --surface-elevated: 0 0% 14%;
+    --accent-blue: 217 91% 65%;
+    --accent-blue-foreground: 0 0% 8%;
+    --success: 152 69% 25%;
+    --success-foreground: 0 0% 95%;
+    --warning: 25 95% 60%;
+    --warning-foreground: 0 0% 8%;
+    --border-muted: 0 0% 16%;
+    
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 95%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 16%;
+    --sidebar-ring: 217 91% 65%;
+  }
+}
+
+@layer components {
+  /* Dashboard institutional typography styles */
+  .institutional-heading {
+    @apply font-semibold tracking-tight text-foreground;
+  }
+  
+  .financial-data {
+    @apply font-mono tabular-nums;
+  }
+  
+  .status-text {
+    @apply text-sm font-medium;
+  }
+
+  /* Surgical precision interactions */
+  .surgical-button {
+    @apply transition-all duration-200 ease-out;
+  }
+  
+  .surgical-button:hover {
+    @apply scale-105;
+  }
+
+  /* Custom scrollbars for institutional feel */
+  .institutional-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .institutional-scroll::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  .institutional-scroll::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-sm;
+  }
+  
+  .institutional-scroll::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+/* Dashboard-specific animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* =============================================================================
+   INSTITUTIONAL THEME SCOPING
+   Override main site colors when data-theme="institutional" is present
+   ============================================================================= */
+
+[data-theme="institutional"] {
+  /* Override main site orange colors with institutional blue */
+  --color-pollen-accent: hsl(217, 91%, 60%);
+  --color-pollen-primary: hsl(0, 0%, 10%);
+  --color-pollen-secondary: hsl(215, 14%, 34%);
+  
+  /* Ensure proper contrast and hierarchy */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 10%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+  
+  /* Override button colors */
+  --primary: 217 91% 60%;
+  --primary-foreground: 0 0% 98%;
+  
+  /* Ensure success/warning colors stay institutional */
+  --success: 152 69% 19%;
+  --warning: 25 95% 53%;
+  --destructive: 0 74% 42%;
+}
+
+/* Override specific component styles within institutional theme */
+[data-theme="institutional"] .btn-primary,
+[data-theme="institutional"] .btn-orange,
+[data-theme="institutional"] .btn-primary-orange {
+  background: hsl(217, 91%, 60%);
+  border-color: hsl(217, 91%, 60%);
+}
+
+[data-theme="institutional"] .btn-primary:hover,
+[data-theme="institutional"] .btn-orange:hover,
+[data-theme="institutional"] .btn-primary-orange:hover {
+  background: hsl(217, 91%, 55%);
+  border-color: hsl(217, 91%, 55%);
+}
+
+/* Ensure text colors use institutional palette */
+[data-theme="institutional"] .text-pollen-accent {
+  color: hsl(217, 91%, 60%);
+}
+
+[data-theme="institutional"] .bg-pollen-accent {
+  background-color: hsl(217, 91%, 60%);
+}
+
+[data-theme="institutional"] .border-pollen-accent {
+  border-color: hsl(217, 91%, 60%);
+}
+
+/* Dashboard Typography - Use Geist font for institutional theme */
+[data-theme="institutional"] {
+  font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+[data-theme="institutional"] h1,
+[data-theme="institutional"] h2,
+[data-theme="institutional"] h3,
+[data-theme="institutional"] h4,
+[data-theme="institutional"] h5,
+[data-theme="institutional"] h6 {
+  font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 600;
+}
+
+[data-theme="institutional"] .institutional-heading {
+  font-family: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
